@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
       }
     }
-    setCookie('session', parseInt(getCookie('session')) + 1, 1);
+    //setCookie('session', parseInt(getCookie('session')) + 1, 1);
     if(checkCookie('maxNumber')) document.getElementById("#Form1").remove();
 
 
