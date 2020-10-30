@@ -6,6 +6,9 @@ body{
 *{
     box-sizing: border-box;
 }
+input{
+    margin: 5px;
+}
 .container{
     width: 100%;
     background-color: brown;
