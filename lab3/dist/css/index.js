@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     setCookie('session', parseInt(getCookie('session')) + 1, 1);
-    if(checkCookie('maxNumber')) document.querySelector('#numForm').remove();
+    if(checkCookie('maxNumber')) document.querySelector('#Form1').remove();
     })
     
     const setCookie = (name, data, expDays) => {
