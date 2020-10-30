@@ -51,7 +51,6 @@ document.querySelector('#numBtn').addEventListener('click', () => {
       let tenth = document.querySelector('#input10').value;
       let mass = [first, second, third, forth, fifth, sixth, seventh, eighth, nineth, tenth];
       let max = Math.max(...mass);
-      let min = Math.min(...mass);
       alert('The biggest number is ' + max);
       setCookie('maxNumber', max,2);
   })
