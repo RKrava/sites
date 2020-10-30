@@ -9,8 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
       }
     }
-    //setCookie('session', parseInt(getCookie('session')) + 1, 1);
+    setCookie('session', parseInt(getCookie('session')) + 1, 1);
     if(checkCookie('maxNumber')) document.getElementById("#Form1").remove();
+
+
+    makeEditableBlock('section-2');
+    makeEditableBlock('section-5');
+    initEditableBlocks();
     })
     
     const setCookie = (name, data, expDays) => {
@@ -26,6 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const getCookie = (name) => {
       return checkCookie(name) ? document.cookie.split(';').find((c) => c.includes(name)).split('=')[1] : 0;
     }
+
+
+
 
 // 1
 let tmp = document.querySelector('#section-5').innerHTML;
@@ -84,4 +92,28 @@ window.addEventListener('scroll', function() {
         document.querySelector('#section-4').innerHTML  = "";
     }
   });
-// 6
+
+  const initEditableBlocks = () => {
+    Array.from(document.getElementsByClassName('editArea')).map((area) => {
+      area.addEventListener('change', (event) => {
+        const newContent = event.target.value;
+        localStorage.setItem(`${event.target.parentNode.id}Content`, newContent);
+        event.target.parentNode.children[0].innerHTML = newContent;
+       })
+    })
+    Array.from(document.getElementsByClassName('editBtn')).map((btn) => {
+      btn.addEventListener('click', (event) => {
+        localStorage.removeItem(`${event.target.parentNode.id}Content`);
+        document.location.reload();
+      })
+    })
+  }
+  const makeEditableBlock = (blockId) => {
+    const content = localStorage.getItem(`${blockId}Content`) ? 
+    localStorage.getItem(`${blockId}Content`) : 
+    document.getElementById(blockId).innerHTML;
+    document.getElementById(blockId).innerHTML = content;
+    document.getElementById(blockId).insertAdjacentHTML('beforeend', 
+    `<textarea class="editArea">${content}</textarea>
+    <button type="submit" class="editBtn">Return default</button>`)
+  }

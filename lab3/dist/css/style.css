@@ -114,3 +114,25 @@ ul li a{
 #section-8{
     background-color: rgb(255, 0, 0);
 }
+
+#selectBlock {
+    width: 100%;
+    height: 5em;
+    font-family: "Poppins";
+    border: none;
+    resize: none;
+    margin-top: 1em;
+  }
+  #selectLog {
+    font-size: 0.5em;
+  }
+  .editArea {
+    margin-top: 0.5em;
+    width: 100%;
+    height: 8em;
+    resize: none;
+  }
+  .editBtn {
+    width: 100%;
+    cursor: pointer;
+  }
