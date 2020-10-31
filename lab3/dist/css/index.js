@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     setCookie('session', parseInt(getCookie('session')) + 1, 1);
-    if(checkCookie('maxNumber')) document.getElementById("#Form1").remove();
-
+    if(checkCookie('maxNumber')) document.getElementById("Form1").remove();
 
     makeEditableBlock('section-2');
     makeEditableBlock('section-5');
