@@ -96,8 +96,16 @@ window.addEventListener('scroll', function() {
     Array.from(document.getElementsByClassName('editArea')).map((area) => {
       area.addEventListener('change', (event) => {
         const newContent = event.target.value;
-        localStorage.setItem(`${event.target.parentNode.id}Content`, newContent);
-        event.target.parentNode.children[0].innerHTML = newContent;
+        if(isValidHTML(newContent))
+        {
+          localStorage.setItem(`${event.target.parentNode.id}Content`, newContent);
+          event.target.parentNode.children[0].innerHTML = newContent;
+        }
+        else
+        {
+          localStorage.removeItem(`${event.target.parentNode.id}Content`);
+          document.location.reload();
+        }
        })
     })
     Array.from(document.getElementsByClassName('editBtn')).map((btn) => {
@@ -116,3 +124,8 @@ window.addEventListener('scroll', function() {
     `<textarea class="editArea">${content}</textarea>
     <button type="submit" class="editBtn">Return default</button>`)
   }
+  const isValidHTML = (html) => {
+    const doc = document.createElement('div');
+    doc.innerHTML = html;
+    return doc.innerHTML === html;
+  } 
