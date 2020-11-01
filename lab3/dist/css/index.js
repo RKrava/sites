@@ -65,9 +65,9 @@ document.querySelector('#numBtn').addEventListener('click', () => {
 // 4
 if(window.localStorage)
 {
-    if(localStorage.getItem('check') == null) {localStorage.setItem('check',0);}
-    else if(localStorage.getItem('check') == 0) {document.querySelector('#section-6').style.fontWeight = 'normal';}
-        else {document.querySelector('#section-6').style.fontWeight = 'bold';}
+    if(localStorage.getItem('check') == null) {localStorage.setItem('check',0); }
+    else if(localStorage.getItem('check') == 0) {document.querySelector('#section-6').style.fontWeight = 'normal'; document.querySelector('#medblod').checked = true;}
+        else {document.querySelector('#section-6').style.fontWeight = 'bold'; document.querySelector('#bold').checked = true;}
 }   
 else alert(" localStorage cant be used");
 {
